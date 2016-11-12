@@ -1,0 +1,16 @@
+sleeo()和wait()的区别
+ 它们最大本质的区别是:sleep()不释放同步锁,wait()释放同步锁.
+ 还有用法的上的不同是:sleep(milliseconds)可以用时间指定来使他自动醒过来,
+ 如果时间不到你只能调用interreput()来强行打断;wait()可以用notify()直接唤起.
+
+ sleep和wait的区别还有：
+ 1。这两个方法来自不同的类分别是Thread和Object
+ 2。最主要是sleep方法没有释放锁，而wait方法释放了锁，
+ 使得其他线程可以使用同步控制块或者方法。
+ 3。wait，notify和notifyAll只能在同步控制方法或者同步控制块里面使用，而sleep可以在
+ 任何地方使用
+ synchronized(x){
+ x.notify()
+ //或者wait()
+ }
+ 4。sleep必须捕获异常，而wait，notify和notifyAll不需要捕获异常
