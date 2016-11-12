@@ -1,0 +1,53 @@
+增强的for循环例子：
+public static<AnyType> void print(Data_Structure<AnyType> coll){
+     for(AnyType item:coll)
+          System.out.println(item);
+}/**这就是一个简单的增强for循环的例子**/
+当编译器遇到一个正在用于Iterator的对象的增强的for循环的时候，它用对iterator
+方法的那些调用替代增强的for循环以得到一个Iterator对象，然后调用next和hasNext
+public static<AnyType> void print(Data_Structure<AnyType> coll){
+     Iterator<AnyType>it=coll.iterator();
+     while(it.hasNext()){
+          AnyType item=it.next();
+          System.out.println(item);
+     }
+}/**通过编译器使用一个迭代器改写的iterator类型上的增强for循环**/
+
+当使用增强的for循环，或者直接使用Iterator的时候，如果正在迭代的集合进行结构上的改变
+比如对集合使用add，remove，clear等方法，那么迭代器将不再合法，并且会有异常抛出，
+然而如果迭代器使用了自己的remove方法，那这个迭代器仍是合法的。
+
+/**这个测试增强for循环里改变集合结构的代码**/
+public class Text {
+    public static void main(String[]args){
+        List<Integer>zzy=new ArrayList<>();
+        zzy.add(6);zzy.add(5);zzy.add(1);zzy.add(4);zzy.add(2);
+        System.out.println(zzy);
+        Text.RemoveEvensver(zzy);
+        System.out.println(zzy);
+    }
+    public static void RemoveEvensver(List<Integer>list){
+
+        /**这是第一个方法，出现编译出错。**/
+        /**for (Integer x:list)
+            if (x%2==0)
+                list.remove(x);
+         **/
+
+        /**这是第二个方法，是正确的。**/
+        /**int i=0;
+        while (i<list.size())
+            if (list.get(i)%2==0)
+                list.remove(i);
+            else
+                i++;
+         **/
+
+        Iterator<Integer>it=list.iterator();
+        while (it.hasNext())
+            if (it.next()%2==0){
+                it.remove();
+               //list.add(9);
+            }
+    }
+}
