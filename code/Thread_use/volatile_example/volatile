@@ -1,0 +1,30 @@
+volatile的原理和实现机制
+
+　　前面讲述了源于volatile关键字的一些使用，下面我们来探讨一下volatile到底如何保证可见性和禁止指令重排序的。
+
+　　下面这段话摘自《深入理解Java虚拟机》：
+
+　　“观察加入volatile关键字和没有加入volatile关键字时所生成的汇编代码发现，加入volatile关键字时，会多出一个lock前缀指令”
+
+　　lock前缀指令实际上相当于一个内存屏障（也成内存栅栏），内存屏障会提供3个功能：
+
+　　1）它确保指令重排序时不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障的后面；即在执行到
+       内存屏障这句指令时，在它前面的操作已经全部完成；
+
+　　2）它会强制将对缓存的修改操作立即写入主存；
+
+　　3）如果是写操作，它会导致其他CPU中对应的缓存行无效。
+
+
+使用volatile关键字的场景
+.状态标记量
+volatile boolean inited = false;
+//线程1:
+context = loadContext();
+inited = true;
+
+//线程2:
+while(!inited ){
+sleep()
+}
+doSomethingwithconfig(context);
