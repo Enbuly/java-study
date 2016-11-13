@@ -76,7 +76,6 @@ class ConnectionPool implements IConnectionPool {
                 try {
                     wait(this.dbBean.getConnTimeOut());
                 }catch (InterruptedException e){e.printStackTrace();}
-
                 conn = getConnection();
             }
             if (isValid(conn)) {
@@ -101,7 +100,7 @@ class ConnectionPool implements IConnectionPool {
     }
 
     // release connection
-    public synchronized void releaseConn(Connection conn) throws SQLException {
+    public synchronized void releaseConnection(Connection conn) throws SQLException {
         if (isValid(conn)&& !(freeConnection.size() > dbBean.getMaxConnections())) {
             freeConnection.add(conn);
             activeConnection.remove(conn);
@@ -151,7 +150,7 @@ class ConnectionPool implements IConnectionPool {
     //check connection pool
     @Override
     public void checkPool() {
-        if(dbBean.isCheakPool()) {
+        if(dbBean.isCheckPool()) {
             System.out.println("free connection pool£º" + freeConnection.size());
             System.out.println("active connection pool£º" + activeConnection.size());
             System.out.println("all the connection in the connection pool£º" + contActive);

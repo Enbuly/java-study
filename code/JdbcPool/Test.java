@@ -30,6 +30,7 @@ public class Test {
         thread5.start();
 
         iConnectionPool.checkPool();
+        connectionPoolManager.destroy("testPool");
     }
 
 }

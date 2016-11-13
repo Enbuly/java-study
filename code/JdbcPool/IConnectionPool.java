@@ -11,7 +11,7 @@ interface IConnectionPool {
 
      Connection getCurrentConnection();// get current connection
 
-     void releaseConn(Connection conn) throws SQLException;// release connection
+     void releaseConnection(Connection conn) throws SQLException;// release connection
 
      void destroy(); // destroy connection pool
 

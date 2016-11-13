@@ -4,6 +4,7 @@ package JdbcPool;
  * @author zzy
  */
 public class DBbean {
+
     private String driverName; //driver name
     private String url;//url
     private String userName;//username
@@ -14,13 +15,13 @@ public class DBbean {
     private int initConnections = 5;// init connection count
     private long connTimeOut = 1000;//the frequency be again get the connection
     private int maxActiveConnections = 100;// max active connection
-    private long connectionTimeOut = 1000*60*20;// connection time out
-    private boolean isCurrentConnection = true; // is not a current connection
     private boolean isCheckPool = true; // check the pool
-    private long lazyCheck = 1000*60*60;// lazy some time check connection pool
-    private long periodCheck = 1000*60*60;// the frequency of check the pool
 
     public DBbean() {
+    }
+
+    public boolean isCheckPool() {
+        return isCheckPool;
     }
 
     public String getDriverName() {
@@ -63,26 +64,6 @@ public class DBbean {
         return maxActiveConnections;
     }
 
-    public long getConnectionTimeOut() {
-        return connectionTimeOut;
-    }
-
-    public boolean isCurrentConnection() {
-        return isCurrentConnection;
-    }
-
-    public boolean isCheakPool() {
-        return isCheckPool;
-    }
-
-    public long getLazyCheck() {
-        return lazyCheck;
-    }
-
-    public long getPeriodCheck() {
-        return periodCheck;
-    }
-
     public void setDriverName(String driverName) {
         this.driverName = driverName;
     }
@@ -123,25 +104,6 @@ public class DBbean {
         this.maxActiveConnections = maxActiveConnections;
     }
 
-    public void setConnectionTimeOut(long connectionTimeOut) {
-        this.connectionTimeOut = connectionTimeOut;
-    }
-
-    public void setCurrentConnection(boolean currentConnection) {
-        isCurrentConnection = currentConnection;
-    }
-
-    public void setCheakPool(boolean cheakPool) {
-        isCheckPool = cheakPool;
-    }
-
-    public void setLazyCheck(long lazyCheck) {
-        this.lazyCheck = lazyCheck;
-    }
-
-    public void setPeriodCheck(long periodCheck) {
-        this.periodCheck = periodCheck;
-    }
 
     @Override
     public String toString() {
@@ -156,11 +118,7 @@ public class DBbean {
                 ", initConnections=" + initConnections +
                 ", connTimeOut=" + connTimeOut +
                 ", maxActiveConnections=" + maxActiveConnections +
-                ", connectionTimeOut=" + connectionTimeOut +
-                ", isCurrentConnection=" + isCurrentConnection +
-                ", isCheakPool=" + isCheckPool +
-                ", lazyCheck=" + lazyCheck +
-                ", periodCheck=" + periodCheck +
+                ", isCheckPool=" + isCheckPool +
                 '}';
     }
 }
