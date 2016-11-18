@@ -9,6 +9,7 @@ import java.util.Vector;
  * @author zzy
  */
 class ConnectionPool implements IConnectionPool {
+
     private DBbean dbBean;
     private boolean isActive = false; // the connection pool state
     private int contActive = 0;// record the active connection
@@ -69,6 +70,7 @@ class ConnectionPool implements IConnectionPool {
                 } else {
                     try {
                         conn = newConnection();
+                        threadLocal.set(conn);
                     }catch (ClassNotFoundException e){e.printStackTrace();}
                 }
             }
@@ -77,6 +79,7 @@ class ConnectionPool implements IConnectionPool {
                     wait(this.dbBean.getConnTimeOut());
                 }catch (InterruptedException e){e.printStackTrace();}
                 conn = getConnection();
+                return conn;
             }
             if (isValid(conn)) {
                 activeConnection.add(conn);
@@ -101,12 +104,19 @@ class ConnectionPool implements IConnectionPool {
 
     // release connection
     public synchronized void releaseConnection(Connection conn) throws SQLException {
-        if (isValid(conn)&& !(freeConnection.size() > dbBean.getMaxConnections())) {
+        if (isValid(conn)&& (freeConnection.size() < dbBean.getMaxConnections())) {
             freeConnection.add(conn);
             activeConnection.remove(conn);
             contActive --;
             threadLocal.remove();
             notifyAll();
+        }
+        else {
+            activeConnection.remove(conn);
+            contActive --;
+            threadLocal.remove();
+            notifyAll();
+            conn.close();
         }
     }
 
