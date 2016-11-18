@@ -3,7 +3,7 @@ package JdbcPool;
  * Created by john on 2016/11/2.
  * @author zzy
  */
-public class DBbean {
+class DBbean {
 
     private String driverName; //driver name
     private String url;//url
@@ -17,14 +17,14 @@ public class DBbean {
     private int maxActiveConnections = 100;// max active connection
     private boolean isCheckPool = true; // check the pool
 
-    public DBbean() {
+    DBbean() {
     }
 
-    public boolean isCheckPool() {
+    boolean isCheckPool() {
         return isCheckPool;
     }
 
-    public String getDriverName() {
+    String getDriverName() {
         return driverName;
     }
 
@@ -32,7 +32,7 @@ public class DBbean {
         return url;
     }
 
-    public String getUserName() {
+    String getUserName() {
         return userName;
     }
 
@@ -40,31 +40,31 @@ public class DBbean {
         return password;
     }
 
-    public String getPoolName() {
+    String getPoolName() {
         return poolName;
     }
 
-    public int getMinConnections() {
-        return minConnections;
-    }
+//    public int getMinConnections() {
+//        return minConnections;
+//    }
 
-    public int getMaxConnections() {
+    int getMaxConnections() {
         return maxConnections;
     }
 
-    public int getInitConnections() {
+    int getInitConnections() {
         return initConnections;
     }
 
-    public long getConnTimeOut() {
+    long getConnTimeOut() {
         return connTimeOut;
     }
 
-    public int getMaxActiveConnections() {
+    int getMaxActiveConnections() {
         return maxActiveConnections;
     }
 
-    public void setDriverName(String driverName) {
+    void setDriverName(String driverName) {
         this.driverName = driverName;
     }
 
@@ -72,7 +72,7 @@ public class DBbean {
         this.url = url;
     }
 
-    public void setUserName(String userName) {
+    void setUserName(String userName) {
         this.userName = userName;
     }
 
@@ -80,29 +80,29 @@ public class DBbean {
         this.password = password;
     }
 
-    public void setPoolName(String poolName) {
+    void setPoolName(String poolName) {
         this.poolName = poolName;
     }
 
-    public void setMinConnections(int minConnections) {
+    void setMinConnections(int minConnections) {
         this.minConnections = minConnections;
     }
 
-    public void setMaxConnections(int maxConnections) {
+    void setMaxConnections(int maxConnections) {
         this.maxConnections = maxConnections;
     }
 
-    public void setInitConnections(int initConnections) {
+    void setInitConnections(int initConnections) {
         this.initConnections = initConnections;
     }
 
-    public void setConnTimeOut(long connTimeOut) {
-        this.connTimeOut = connTimeOut;
-    }
+//    public void setConnTimeOut(long connTimeOut) {
+//        this.connTimeOut = connTimeOut;
+//    }
 
-    public void setMaxActiveConnections(int maxActiveConnections) {
-        this.maxActiveConnections = maxActiveConnections;
-    }
+//    public void setMaxActiveConnections(int maxActiveConnections) {
+//        this.maxActiveConnections = maxActiveConnections;
+//    }
 
 
     @Override

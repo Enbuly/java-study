@@ -2,7 +2,7 @@ package JdbcPool;
 
 /**
  * Created by john on 2016/11/13.
- *
+ * @author zzy
  */
 public class Test {
     public static void main(String[]args){

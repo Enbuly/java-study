@@ -1,0 +1,10 @@
+<database><!--put this in the project root directories-->
+    <drivername>com.mysql.jdbc.Driver</drivername>
+    <url>jdbc:mysql://localhost:3306/jdbc_example</url>
+    <user>root</user>
+    <password></password><!--my mysql password is empty-->
+    <poolname>testPool</poolname>
+    <minConnection>1</minConnection>
+    <maxConnection>100</maxConnection>
+    <initConnection>5</initConnection>
+</database>

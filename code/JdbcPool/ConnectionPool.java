@@ -96,8 +96,7 @@ class ConnectionPool implements IConnectionPool {
         Connection conn = null;
         if (dbBean != null) {
             Class.forName(dbBean.getDriverName());
-            conn = DriverManager.getConnection(dbBean.getUrl(),
-                    dbBean.getUserName(), dbBean.getPassword());
+            conn = DriverManager.getConnection(dbBean.getUrl(),dbBean.getUserName(), dbBean.getPassword());
         }
         return conn;
     }
@@ -115,12 +114,12 @@ class ConnectionPool implements IConnectionPool {
             activeConnection.remove(conn);
             contActive --;
             threadLocal.remove();
-            notifyAll();
             conn.close();
+            notifyAll();
         }
     }
 
-    // judge the connection is valid
+    // judge the connection is valid or not
     private boolean isValid(Connection conn) {
         try {
             if (conn == null || conn.isClosed()) {
