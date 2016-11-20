@@ -3,37 +3,25 @@ package Thread_use.New_Produce_Consumer;
  * Created by john on 2016/10/14.
  * consumer
  */
-public class Consumer extends Thread{
+class Consumer extends Thread{
 
-    private int num;// 每次消费的产品数量
+    private int num;//want to consumer number
 
-    private Storage storage;// 所在放置的仓库
+    private Storage storage;
 
-    public Consumer(Storage storage) {// 构造函数，设置仓库
+    Consumer(Storage storage) {
         this.storage = storage;
     }
 
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
+    void setNum(int num) {
         this.num = num;
     }
 
-    public Storage getStorage() {
-        return storage;
-    }
-
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
-
-    public void run() {// 线程run函数
+    public void run() {
         consume(num);
     }
 
-    public void consume(int num) {// 调用仓库Storage的生产函数
+    private void consume(int num) {
         storage.consume(num);
     }
 

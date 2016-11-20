@@ -1,40 +1,27 @@
 package Thread_use.New_Produce_Consumer;
-//import Thread_use.New_Produce_Consumer.await_signal.Storage;
 /**
  * Created by john on 2016/10/14.
  * produce
  */
-public class Producer extends Thread{
+class Producer extends Thread{
 
-    private int num;// 每次生产的产品数量
+    private int num;//want to produce number
 
-    private Storage storage;// 所在放置的仓库
+    private Storage storage;
 
-    public Producer(Storage storage) {// 构造函数，设置仓库
+    Producer(Storage storage) {
         this.storage = storage;
     }
 
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
+    void setNum(int num) {
         this.num = num;
     }
 
-    public Storage getStorage() {
-        return storage;
-    }
-
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
-
-    public void run() { // 线程run函数
+    public void run() {
         produce(num);
     }
 
-    public void produce(int num) {// 调用仓库Storage的生产函数
+    private void produce(int num) {
         storage.produce(num);
     }
 }

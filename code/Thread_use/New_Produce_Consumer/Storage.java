@@ -1,48 +1,44 @@
 package Thread_use.New_Produce_Consumer;
-
 import java.util.LinkedList;
-
 /**
  * Created by john on 2016/10/14.
  * produce consumer model
  */
-public class Storage {
+class Storage {
 
-    private int MAX_SIZE = 100;// 仓库最大存储量
+    private LinkedList<Object> list = new LinkedList<>();
 
-    private LinkedList<Object> list = new LinkedList<>();// 仓库存储的载体
-
-    public void produce(int num) {// 生产num个产品
-        synchronized (this) {// 同步代码段
-            while (list.size() + num > MAX_SIZE) {// 如果仓库剩余容量不足
-                System.out.println("要生产的产品数量:" + num + "/t库存量:"
-                        + list.size() + "/t暂时不能执行生产任务!");
+    void produce(int num) {
+        final int MAX_SIZE = 100;
+        synchronized (this) {
+            while (list.size() + num > MAX_SIZE) {
+                System.out.println("want produce number:"+num+",store stock:"
+                        + list.size() + ",Temporarily unable to produce!");
                 try {
-                    wait();// 由于条件不满足，生产阻塞
+                    wait();
                 } catch (InterruptedException e) {e.printStackTrace();}
             }
-            for (int i = 1; i <= num; ++i) {// 生产条件满足情况下，生产num个产品
+            for (int i = 1; i <= num; ++i) {
                 list.add(new Object());
             }
-            System.out.println("已经生产产品数:" + num + "/t现仓储量为:" + list.size());
+            System.out.println("produce number:" + num + " and now the store stock is:" + list.size());
             notifyAll();
         }
     }
 
-    // 消费num个产品
-    public void consume(int num) {
-        synchronized (this){// 同步代码段
-            while (list.size() < num) { // 如果仓库存储量不足
-                System.out.println("要消费的产品数量:" + num + "/t库存量:"
-                        + list.size() + "/t暂时不能执行消费任务!");
+    void consume(int num) {
+        synchronized (this){
+            while (list.size() < num) {
+                System.out.println("will consume count:" + num + ",store stock:"
+                        + list.size() + ",Temporarily unable to consume!");
                 try {
-                    wait();// 由于条件不满足，消费阻塞
+                    wait();
                 } catch (InterruptedException e){e.printStackTrace();}
             }
-            for (int i = 1; i <= num; ++i){ // 消费条件满足情况下，消费num个产品
+            for (int i = 1; i <= num; ++i){
                 list.remove();
             }
-            System.out.println("已经消费产品数:" + num + "/t现仓储量为:" + list.size());
+            System.out.println("consume number:" + num + ",store stock:" + list.size());
             notifyAll();
         }
     }
