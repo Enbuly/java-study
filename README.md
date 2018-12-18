@@ -1,2 +1,2 @@
 # study-Java
-my note and some small example
+my note and some demo

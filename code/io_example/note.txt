@@ -1,2 +1,0 @@
-about SequenceInputStream OutputStreamWriter InputStreamReader
-PrintStream or more is easy,you can study by jdk API
