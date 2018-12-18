@@ -1,11 +1,5 @@
 package java.data_structure;
 
-/**
- * @author zhangzy
- * @since 12-16
- * BinarySearchTree
- */
-
 public class Sort {
     public static int[] insertSort(int[] a) {//≤Â»Î≈≈–Ú
         int j;
