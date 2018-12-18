@@ -1,4 +1,4 @@
-package java.data_structure;
+package data_structure;
 
 /**
  * @author zhangzy
