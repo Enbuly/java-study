@@ -3,11 +3,12 @@ package data_structure;
 /**
  * @author zhangzy
  * @since 12-16
- * BinarySearchTree
+ * 排序
  */
 
 public class Sort {
-    public static int[] insertSort(int[] a) {//插入排序
+    //插入排序
+    public static int[] insertSort(int[] a) {
         int j;
         for (int p = 1; p < a.length; p++) {
             int tmp = a[p];
@@ -19,7 +20,8 @@ public class Sort {
         return a;
     }
 
-    public static int[] shellSort(int[] a) {//希尔排序
+    //希尔排序
+    public static int[] shellSort(int[] a) {
         int j;
         for (int gap = a.length / 2; gap > 0; gap /= 2)
             for (int i = gap; i < a.length; i++) {
@@ -31,8 +33,8 @@ public class Sort {
         return a;
     }
 
-    public static void HeapAdjust(int array[], int i, int nLength)//堆排序的调整部分
-    {
+    //堆排序的调整部分
+    private static void HeapAdjust(int array[], int i, int nLength) {
         int nChild;
         int nTemp;
         for (; 2 * i + 1 < nLength; i = nChild) {
@@ -50,8 +52,8 @@ public class Sort {
         }
     }
 
-    public static int[] HeapSort(int array[], int length)//堆排序
-    {
+    //堆排序
+    public static int[] HeapSort(int array[], int length) {
         int i;
         //调整序列的前半部分元素，调整完之后第一个元素是序列的最大的元素
         //length/2-1是最后一个非叶节点，此处"/"为整除
@@ -70,7 +72,8 @@ public class Sort {
         return array;
     }
 
-    public static int[] sort(int arr[], int low, int high) {//快速排序
+    //快速排序
+    private static int[] sort(int arr[], int low, int high) {
         int l = low;
         int h = high;
         int povit = arr[low];
@@ -97,7 +100,8 @@ public class Sort {
         return arr;
     }
 
-    public static int[] SimpleChoiceSort(int[] a) {//简单选择排序
+    //简单选择排序
+    public static int[] SimpleChoiceSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int k = i;
             for (int j = i + 1; j < a.length; j++) {
@@ -113,8 +117,8 @@ public class Sort {
         return a;
     }
 
-    public static int[] bubble_sort(int[] a)//冒泡排序
-    {
+    //冒泡排序
+    private static int[] bubble_sort(int[] a) {
         int i, j, temp;
         for (j = 0; j < a.length - 1; j++)
             for (i = 0; i < a.length - 1 - j; i++) {
@@ -127,13 +131,15 @@ public class Sort {
         return a;
     }
 
-    public static int[] mergeSort(int[] a) {//归并排序算法
+    //归并排序算法
+    public static int[] mergeSort(int[] a) {
         int[] tmpArray = new int[a.length];
         mergeSortt(a, tmpArray, 0, a.length - 1);
         return a;
     }
 
-    public static void mergeSortt(int[] a, int[] tmpArray, int left, int right) {//递归部分
+    //递归部分
+    private static void mergeSortt(int[] a, int[] tmpArray, int left, int right) {
         if (left < right) {
             int center = (left + right) / 2;
             mergeSortt(a, tmpArray, left, center);
@@ -142,7 +148,8 @@ public class Sort {
         }
     }
 
-    public static void merge(int[] a, int[] tmpArray, int leftPos, int rightPos, int rightEnd) {//合并部分
+    //合并部分
+    private static void merge(int[] a, int[] tmpArray, int leftPos, int rightPos, int rightEnd) {
         int leftEnd = rightPos - 1;
         int tmpPos = leftPos;
         int num = rightEnd - leftPos + 1;
@@ -164,7 +171,8 @@ public class Sort {
         }
     }
 
-    public static void main(String[] args) {//测试排序的主方法
+    //测试排序的主方法
+    public static void main(String[] args) {
         int[] a = {6, 9, 7, 4, 5, 8, 3, 2, 1};
         int[] b = Sort.bubble_sort(a);
         for (int i = 0; i < b.length; i++) {
