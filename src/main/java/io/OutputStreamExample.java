@@ -2,6 +2,11 @@ package io;
 
 import java.io.*;
 
+/**
+ * @author zhangzy
+ * @since 3-18
+ * io
+ */
 public class OutputStreamExample {
 
     private static void testFirst() {
