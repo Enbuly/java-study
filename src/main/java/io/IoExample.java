@@ -7,7 +7,7 @@ import java.io.*;
  * @since 3-18
  * io
  */
-public class OutputStreamExample {
+public class IoExample {
 
     private static void testFirst() {
         try {
@@ -46,7 +46,19 @@ public class OutputStreamExample {
         }
     }
 
+    private static void testThird() {
+        try {
+            RandomAccessFile file =
+                    new RandomAccessFile("E:\\IdeaProjects\\io\\c.txt", "rw");
+            file.seek(20);
+            file.write("Hello World".getBytes());
+            file.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
-        OutputStreamExample.testSecond();
+        IoExample.testThird();
     }
 }
