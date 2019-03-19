@@ -9,15 +9,18 @@ import java.io.*;
  */
 public class IoExample {
 
+    private static File verifyPath(String fileName) {
+        File file = new File("E:\\IdeaProjects\\ioAndNio");
+        if (!file.exists()) {
+            file.mkdir();
+            System.out.println("create file success!");
+        }
+        return new File(file + fileName);
+    }
+
     private static void testFirst() {
         try {
-            File file = new File("E:\\IdeaProjects\\ioAndNio");
-            if (!file.exists()) {
-                file.mkdir();
-                System.out.println("create file success!");
-            }
-            file = new File(file + "\\a.txt");
-
+            File file = verifyPath("\\a.txt");
             String bWrite = "zzy nice!";
             //OutputStream os = new FileOutputStream(file);
             OutputStream os = new BufferedOutputStream(new FileOutputStream(file));
@@ -39,13 +42,7 @@ public class IoExample {
 
     private static void testSecond() {
         try {
-            File file = new File("E:\\IdeaProjects\\ioAndNio");
-            if (!file.exists()) {
-                file.mkdir();
-                System.out.println("create file success!");
-            }
-            file = new File(file + "\\b.txt");
-
+            File file = verifyPath("\\b.txt");
             String bWrite = "zzy nice!";
             //Writer os = new FileWriter(file);
             Writer os = new BufferedWriter(new FileWriter(file));
@@ -66,13 +63,7 @@ public class IoExample {
 
     private static void testThird() {
         try {
-            File filePath = new File("E:\\IdeaProjects\\ioAndNio");
-            if (!filePath.exists()) {
-                filePath.mkdir();
-                System.out.println("create file success!");
-            }
-            filePath = new File(filePath + "\\c.txt");
-
+            File filePath = verifyPath("\\c.txt");
             RandomAccessFile file = new RandomAccessFile(filePath, "rw");
             file.seek(20);
             file.write("Hello World".getBytes());
@@ -83,7 +74,6 @@ public class IoExample {
             while ((hasRead = file.read(temp)) > 0) {
                 System.out.println(new String(temp, 0, hasRead));
             }
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

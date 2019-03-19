@@ -19,8 +19,8 @@
       <file leaf-file-name="IoExample.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/IoExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1597">
-              <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+            <state relative-caret-position="440">
+              <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -272,7 +272,7 @@
       <workItem from="1552631910081" duration="388000" />
       <workItem from="1552632490573" duration="2801000" />
       <workItem from="1552873709196" duration="6356000" />
-      <workItem from="1552957618326" duration="5126000" />
+      <workItem from="1552957618326" duration="5562000" />
     </task>
     <task id="LOCAL-00001" summary="提交io">
       <created>1552877261439</created>
@@ -309,11 +309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552959472355</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="提交代码规范化">
+      <created>1552962802253</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552962802253</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14671000" />
+    <option name="totallyTimeSpent" value="15107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -360,7 +367,8 @@
     <MESSAGE value="提交FileReader、FileWriter" />
     <MESSAGE value="提交注释" />
     <MESSAGE value="提交RandomAccessFile" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交RandomAccessFile" />
+    <MESSAGE value="提交代码规范化" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交代码规范化" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -404,8 +412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/IoExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1597">
-          <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+        <state relative-caret-position="440">
+          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding />
         </state>
       </provider>
