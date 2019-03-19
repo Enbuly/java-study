@@ -52,7 +52,13 @@ public class IoExample {
                     new RandomAccessFile("E:\\IdeaProjects\\io\\c.txt", "rw");
             file.seek(20);
             file.write("Hello World".getBytes());
-            file.close();
+
+            byte[] temp = new byte[1024];
+            int hasRead = 0;
+            while ((hasRead = file.read(temp)) > 0) {
+                System.out.println(new String(temp, 0, hasRead));
+            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
