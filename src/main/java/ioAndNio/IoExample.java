@@ -9,18 +9,9 @@ import java.io.*;
  */
 public class IoExample {
 
-    final static String DEFAULT_PATH = "E:\\IdeaProjects\\ioAndNio";
+    private final static String DEFAULT_PATH = "E:\\IdeaProjects\\ioAndNio";
 
-    private static File verifyPath(String fileName) {
-        File file = new File(DEFAULT_PATH);
-        if (!file.exists()) {
-            file.mkdir();
-            System.out.println("create file success!");
-        }
-        return new File(file + fileName);
-    }
-
-    private static void testFirst() {
+    private static void testByteStream() {
         try {
             File file = verifyPath("\\a.txt");
             String bWrite = "zzy nice!";
@@ -42,7 +33,7 @@ public class IoExample {
         }
     }
 
-    private static void testSecond() {
+    private static void testCharacterStream() {
         try {
             File file = verifyPath("\\b.txt");
             String bWrite = "zzy nice!";
@@ -63,7 +54,7 @@ public class IoExample {
         }
     }
 
-    private static void testThird() {
+    private static void testRandomAccessFile() {
         try {
             File filePath = verifyPath("\\c.txt");
             RandomAccessFile file = new RandomAccessFile(filePath, "rw");
@@ -81,9 +72,18 @@ public class IoExample {
         }
     }
 
+    private static File verifyPath(String fileName) {
+        File file = new File(DEFAULT_PATH);
+        if (!file.exists()) {
+            file.mkdir();
+            System.out.println("create file success!");
+        }
+        return new File(file + fileName);
+    }
+
     public static void main(String[] args) {
-        IoExample.testFirst();
-        IoExample.testSecond();
-        IoExample.testThird();
+        IoExample.testByteStream();
+        IoExample.testCharacterStream();
+        IoExample.testRandomAccessFile();
     }
 }
