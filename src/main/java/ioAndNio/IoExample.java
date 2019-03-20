@@ -9,8 +9,10 @@ import java.io.*;
  */
 public class IoExample {
 
+    final static String DEFAULT_PATH = "E:\\IdeaProjects\\ioAndNio";
+
     private static File verifyPath(String fileName) {
-        File file = new File("E:\\IdeaProjects\\ioAndNio");
+        File file = new File(DEFAULT_PATH);
         if (!file.exists()) {
             file.mkdir();
             System.out.println("create file success!");
