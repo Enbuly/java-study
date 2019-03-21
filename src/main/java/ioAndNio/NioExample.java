@@ -1,5 +1,6 @@
 package ioAndNio;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -46,7 +47,28 @@ public class NioExample {
         }
     }
 
+    private static void testByteBuffer() {
+        try {
+            FileOutputStream aFile = new FileOutputStream(
+                    "E:\\IdeaProjects\\ioAndNio\\a.txt", true);
+            FileChannel inChannel = aFile.getChannel();
+
+            //create buffer with capacity of 48 bytes
+            ByteBuffer buf = ByteBuffer.allocate(48);
+
+            buf.put("zzy--".getBytes());
+
+            buf.flip();
+
+            inChannel.write(buf);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
+        NioExample.testByteBuffer();
         NioExample.testChannel();
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57787820-91ef-49d1-b50e-c0e967ad124e" name="Default" comment="提交nio的">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ioAndNio/NioExample.java" />
+    <list default="true" id="57787820-91ef-49d1-b50e-c0e967ad124e" name="Default" comment="提交nio的ByteBuffer跟Channel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ioAndNio/NioExample.java" afterPath="$PROJECT_DIR$/src/main/java/ioAndNio/NioExample.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,7 +19,7 @@
       <file leaf-file-name="IoExample.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/IoExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780">
+            <state relative-caret-position="60">
               <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
@@ -29,12 +29,10 @@
       <file leaf-file-name="NioExample.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/NioExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="200">
+              <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1257#1258#0" expanded="true" />
-                <element signature="e#1297#1298#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -314,7 +312,7 @@
       <workItem from="1552957618326" duration="6476000" />
       <workItem from="1552985252342" duration="1205000" />
       <workItem from="1553043274640" duration="4382000" />
-      <workItem from="1553130171182" duration="2703000" />
+      <workItem from="1553130171182" duration="6634000" />
     </task>
     <task id="LOCAL-00001" summary="提交io">
       <created>1552877261439</created>
@@ -379,11 +377,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553044663169</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="提交nio的ByteBuffer跟Channel">
+      <created>1553133788942</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1553133788942</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24311000" />
+    <option name="totallyTimeSpent" value="28242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -431,14 +436,15 @@
     <MESSAGE value="提交注释" />
     <MESSAGE value="提交RandomAccessFile" />
     <MESSAGE value="提交代码规范化" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交代码规范化" />
+    <MESSAGE value="提交nio的ByteBuffer跟Channel" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交nio的ByteBuffer跟Channel" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -499,7 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/IoExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
+        <state relative-caret-position="60">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
@@ -507,12 +513,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ioAndNio/NioExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="200">
+          <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
           </folding>
         </state>
       </provider>
